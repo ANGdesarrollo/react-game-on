@@ -2,26 +2,42 @@
 
 .cart-product-container {
   display: flex;
+  flex-direction: column;
 
   .cart-product {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid c.$lightBlue;
+    }
 
     &__img {
-
+      grid-column: 1 / 2;
+      img {
+        width: 15rem;
+      }
     }
 
     &__name {
-
+      grid-column: 2 / 3;
+      h2 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
     }
 
     &__price {
+      grid-column: 3 / 4;
 
     }
 
     &__qty {
+      grid-column: 4 / 5;
       display: flex;
       button {
         margin: 0 .7rem 0 .7rem;
@@ -33,6 +49,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      div {
+        border: none;
+      }
+    }
+
+    &__delete {
+      grid-column: 6 / 7;
+      img {
+        width: 2rem;
+        cursor: pointer;
+      }
+      img:hover {
+        transform: scale(1.05);
       }
     }
   }

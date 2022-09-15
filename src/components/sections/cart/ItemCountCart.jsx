@@ -1,22 +1,21 @@
 import {useEffect, useState} from "react";
 
 export default function ItemCountCart({initial, stock, onAdd, el, update}) {
+    console.log(initial)
     const [count, setCount] = useState(initial)
+
 
     useEffect(() => {
         setCount(initial)
     }, []);
-
-
+    console.log(count)
 
     function addProduct() {
         setCount(count < stock ? count + 1 : count)
-
     }
 
     function subtractProduct() {
         setCount(count > 1 ? count - 1 : count)
-
     }
 
     return (

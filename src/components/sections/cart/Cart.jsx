@@ -2,7 +2,9 @@ import React, {useState, useEffect, useContext} from 'react';
 import {context} from "./CartContext";
 import ItemCountCart from "./ItemCountCart";
 
+
 export default function Cart() {
+
     const [count, setCount] = useState(1)
     let contextImported = useContext(context)
     let array = contextImported.itemAdded
@@ -28,6 +30,7 @@ export default function Cart() {
                         <div className='cart-product__price'><h2>${el.price}</h2></div>
                         <div className='cart-product__qty'><ItemCountCart stock={el.stock} initial={el.qty} onAdd={onAdd}/></div>
                         <div className='cart-product__total'><h2>{`$${el.price * el.qty}`}</h2></div>
+                        <div className='cart-product__delete'><img onClick={()=> {contextImported.deleteItem(el.id)}} src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958505/react-js-game-on/icons/delete_h4swr7.png" alt=""/></div>
 
                     </div>
 
