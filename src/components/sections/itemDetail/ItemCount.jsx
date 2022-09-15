@@ -9,7 +9,7 @@ export default function ItemCount({stock, initial, onAdd}) {
     }, []);
 
     function disabled() {
-        if(count === 0 || count === stock) {return true} else { return false}
+        if(count === 0) {return true} else { return false}
     }
 
     let classButton = addClass ? 'disable-activate' : null

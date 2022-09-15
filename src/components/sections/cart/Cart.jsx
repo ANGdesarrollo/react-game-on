@@ -10,10 +10,10 @@ export default function Cart() {
 
     function onAdd(qty) {
         setCount(qty)
+        console.log(qty)
     }
 
     console.log(count)
-
 
     return (
         <div className='cart-product-container'>
