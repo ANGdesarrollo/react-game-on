@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import 'src/scss/abstracts/vars';
+@import 'src/scss/abstracts/mixins';
+
+.general-container-header {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: end;
+  font-weight: bold;
+  //*
+  //** LOGO
+  //*
+  .logo-header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    grid-column: 1 / 2;
+
+    img {
+      width: 7rem;
+    }
+  }
+
+  //*
+  //** NAV
+  //*
+  nav {
+    grid-column: 3 / 10;
+    height: 100%;
+
+    ul {
+      @include flex(flex, center, center, row);
+      height: 100%;
+
+      li {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 2rem 0 2rem;
+      }
+
+      li:hover {
+        border-bottom: 2px solid $lightBlue;
+        transform: translateY(-1px);
+        cursor: pointer;
+      }
+
+      .nav-products-header {
+        background-color: $grayForm;
+      }
+    }
+  }
+
+  //*
+  //** DATA HEADER
+  //*
+  .data-header {
+    height: 100%;
+    grid-column: 10 / 11;
+    @include flex(flex, center, center, row);
+
+    img {
+      margin: 0 1rem 0 1rem;
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  //*
+  //** SUB-NAV
+  //*
+  .sub-nav-header {
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: space-around;
+    background-color: $grayForm;
+
+    .return-header {
+      display: none;
+    }
+
+    li {
+      cursor: pointer;
+      padding: 0 2rem 0 2rem;
+    }
+
+    li:hover {
+      transform: scale(1.02);
+      a {
+        color: $lightBlue;
+      }
+    }
+  }
+
+  //*
+  //** MENU HAMBURGUESA
+  //*
+  .menu-hamburguesa-header {
+    display: none;
+  }
+}
+
+//*
+//** MEDIA QUERY 992 // TABLETS // SMARTPHONES
+//*
+
+@media screen and (max-width: 992px) {
+  .general-container-header {
+    //*
+    //** LOGO
+    // *
+    .logo-header {
+      img {
+        width: 7rem;
+      }
+    }
+
+    //*
+    //** NAV
+    // *
+    nav {
+      z-index: 4;
+      transition: 1s;
+      background-color: $grayForm;
+      grid-column: 1 / 13;
+      grid-row: 2 / 3;
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      left: -100%;
+      width: 100%;
+
+      ul {
+        height: fit-content;
+        @include flex(flex, flex-start, center, column);
+
+        li {
+          width: 100%;
+          padding: 2rem 2rem 0 1rem;
+          border-bottom: 2px solid white;
+        }
+
+        .nav-products-header {
+          background-color: inherit;
+        }
+      }
+    }
+
+    .nav-dropdown-active {
+      left: 0;
+    }
+
+    //*
+    //** DATA HEADER
+    // *
+    .data-header {
+      height: 100%;
+      grid-column: 10 / 11;
+      @include flex(flex, center, center, row);
+
+      img {
+        margin: 0 1rem 0 1rem;
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+    }
+
+    //*
+    //** SUB-NAV
+    // *
+    .sub-nav-header {
+      z-index: 4;
+      transition: 1s;
+      right: -100%;
+      grid-row: 2 / 3;
+      position: absolute;
+      min-height: 100vh;
+      @include flex(flex, flex-start, flex-start, column);
+      width: 100%;
+      top: 0;
+      background-color: $grayForm;
+
+      .return-header {
+        display: flex;
+      }
+
+      li {
+        width: 100%;
+        border-bottom: 2px solid white;
+        height: fit-content;
+        padding: 2rem 2rem 0 1rem;
+      }
+      li:hover {
+        border-bottom: 2px solid $lightBlue;
+        transform: translateY(-2px)
+      }
+    }
+
+    .sub-nav-header-active {
+      right: 0;
+    }
+
+    .menu-hamburguesa-header {
+      height: 100%;
+      grid-column: 11 / 13;
+      @include flex(flex, center, flex-end, row);
+      margin-right: 1rem;
+
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,40 @@
+@use '../../../scss/abstracts/vars' as c;
+
+.cart-product-container {
+  display: flex;
+
+  .cart-product {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__img {
+
+    }
+
+    &__name {
+
+    }
+
+    &__price {
+
+    }
+
+    &__qty {
+      display: flex;
+      button {
+        margin: 0 .7rem 0 .7rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: .5rem;
+        background-color: c.$lightBlue;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+}

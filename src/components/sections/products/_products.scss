@@ -1,0 +1,137 @@
+@use "../../../scss/abstracts/vars" as c;
+
+
+//*
+//** OFFERS CAROUSEL
+//*
+.carousel-offers {
+  grid-column: 1 / 6;
+}
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  //*
+  //** FILTER LAYOUT
+  //*
+  .container-category {
+    grid-column: 1 / 1;
+    padding-left: 1em;
+    height: 80vh;
+    background-color: c.$grayTrans;
+    grid-column: 1 / 1;
+    z-index: 0;
+
+    h2 {
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    ul {
+      padding: 0;
+
+      li {
+        cursor: pointer;
+        padding: 1em 0 0 0;
+        font-size: .7rem;
+        border-bottom: 2px solid c.$white;
+      }
+    }
+
+    div {
+
+    }
+  }
+//  *
+//  ** ITEM LIST
+//  *
+  .container-products-dinamyc {
+    z-index: 1;
+    grid-column: 2 / 6;
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .card-container:hover {
+      transform: translateY(-.2rem);
+      background-color: c.$grayForm;
+    }
+
+    .card-container {
+      transition: all .5s ease;
+      margin: .5rem 0.5rem 0 0.5rem;
+      width: 300px;
+      height: 420x;
+      background-color: c.$grayTrans2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__image-product {
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 90%;
+        }
+      }
+
+      &__name-product {
+        position: relative;
+        text-align: center;
+
+        span {
+          position: absolute;
+          padding: 1px;
+          background: white;
+          width: 50%;
+          right: 25%;
+
+        }
+
+        h2 {
+          font-size: 1.3rem;
+          font-weight: bold;
+        }
+
+        h4 {
+          font-size: .7rem;
+          font-weight: bold;
+        }
+      }
+
+      &__detail-product {
+        display: flex;
+        justify-content: center;
+
+        a {
+          text-decoration: none;
+          padding: .2em .2em 0 .2em;
+          font-size: .7rem;
+          border-bottom: 1px solid c.$lightBlue;
+          color: c.$lightBlue;
+        }
+
+        a:hover {
+          color: white;
+        }
+      }
+
+      &__price-product {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-family: 'Roboto Slab', serif;
+
+        h2 {
+          margin: 0;
+        }
+
+        img {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+}

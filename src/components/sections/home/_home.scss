@@ -1,0 +1,196 @@
+@use '../../../scss/abstracts/vars' as c;
+@import '../../../scss/abstracts/mixins';
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  //*
+  //**HOME A
+  //*
+  .home-a {
+    grid-row: 1 / 3;
+    grid-column: 1 / 9;
+    padding: 1rem 0 0 2rem;
+    background-image: url("https://res.cloudinary.com/dwz16rstr/image/upload/v1662958774/react-js-game-on/home-images/home-background_w1cb7a.webp");
+    background-position: center;
+    background-size: cover;
+
+    span {
+      display: block;
+      font-size: 4rem;
+    }
+
+    h4 {
+      font-size: 2rem;
+    }
+  }
+
+  //*
+  //**HOME B (CAROUSEL)
+  //*
+  .home-b {
+    grid-column: 9 / 13;
+
+    .carousel-control-prev {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .carousel-control-next {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .carousel-indicators {
+      margin-bottom: 4rem;
+    }
+
+  }
+
+  //*
+  //**HOME C
+  //*
+  .home-c {
+    overflow: hidden;
+    grid-column: 9 / 13;
+    display: flex;
+    padding: 1em 0 1em 0;
+
+    .main-c-card:hover {
+      transform: scale(1.02)
+    }
+    div {
+      transition: .2s;
+      div {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        background-color: c.$grayTrans;
+        text-align: center;
+        .img-card-main-c {
+          width: 80%;
+        }
+
+        h3 {
+          font-size: .9rem;
+        }
+
+        span {
+          display: block;
+        }
+      }
+
+      .cart-widget-main-c {
+        display: flex;
+        justify-content: flex-end;
+        padding: .3em;
+        img {
+          width: 1.3rem;
+        }
+      }
+    }
+  }
+  //*
+  //**HOME D
+  //*
+
+  .home-d {
+    background-image: url("https://res.cloudinary.com/dwz16rstr/image/upload/v1662958774/react-js-game-on/home-images/home-container-image4_a8zgws.webp");
+    padding: 2em;
+    grid-column: 1 / 13;
+    background-position: center;
+    background-size: cover;
+    height: 800px;
+    div {
+      text-align: center;
+      @include flex(flex, center, center, column);
+      h2 {
+        font-size: 4rem;
+      }
+
+    }
+  }
+}
+//*
+//** MEDIA QUERY 992 // TABLETS
+//*
+@media screen and (max-width: 992px) {
+  .home-container {
+    //*
+    //**HOME A
+    //*
+    .home-a {
+      grid-row: inherit;
+      grid-column: 1 / 13;
+      height: 40vh;
+    }
+    //*
+    //**HOME B (CAROUSEL)
+    //*
+    .home-b {
+      grid-column: 1 / 13;
+    }
+    //*
+    //**HOME C
+    //*
+    .home-c {
+      grid-column: 1 / 13;
+      div {
+        div {
+          .img-card-main-c {
+            width: 100%;
+          }
+        }
+        .cart-widget-main-c {
+          img {
+            width: 2rem;
+          }
+        }
+      }
+    }
+    //*
+    //**HOME D
+    //*
+  }
+}
+
+//*
+//** MEDIA QUERY 576 // MOBILE
+//*
+
+@media screen and (max-width: 576px) {
+  .home-container {
+    //*
+    //**HOME A
+    //*
+    .home-a {
+      span {
+        font-size: 2.5rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
+    }
+
+    //*
+    //**HOME D
+    //*
+
+    .home-d {
+      background-image: url("https://res.cloudinary.com/dwz16rstr/image/upload/v1662958774/react-js-game-on/home-images/home-container-image4_a8zgws.webp");
+      padding: 2em;
+      grid-column: 1 / 13;
+      background-position: center;
+      background-size: cover;
+      height: 400px;
+
+      div {
+        h2 {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+
+}

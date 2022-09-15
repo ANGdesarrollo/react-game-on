@@ -1,0 +1,34 @@
+//**
+//* Abstracts
+//**
+@use 'abstracts/vars';
+@use 'abstracts/mixins';
+//*
+//**GENERAL CONTAINER
+//
+@use "base/general-container";
+//*
+//**NAVBAR
+//
+@use "src/components/base/navBar/navBar";
+//*
+//**HOME
+//
+@use "../components/sections/home/home";
+//*
+//**FOOTER
+//
+@use "src/components/base/footer/footer";
+//*
+//**PRODUCTS
+//
+@use "src/components/sections/products/products";
+//*
+//**ITEM DETAIL
+//
+@use "src/components/sections/itemDetail/detail";
+//*
+//**CART
+//
+@use "src/components/sections/cart/cart";
+
