@@ -33,6 +33,19 @@ export default function CartContext({children}) {
             }
             setItemAdded([...itemAdded, itemToAdd])
         }
+        Swal.fire({
+            background: "hsl(193, 80%, 58%)",
+            width: "17rem",
+            customClass: "swal-height",
+            toast: true,
+            showConfirmButton: false,
+            iconColor: '#fff',
+            color: '#fff',
+            position: 'top-right',
+            icon: 'success',
+            title: 'Product added!',
+            timer: 2500
+        })
     }
 
     function deleteItem(id) {
