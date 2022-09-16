@@ -1,33 +1,39 @@
 import {createContext, useState} from "react";
 import Swal from 'sweetalert2'
 
-
 export const context = createContext()
 
 export default function CartContext({children}) {
-    const Swal = require('sweetalert2')
     const [itemAdded, setItemAdded] = useState([])
 
-    function updateQty(item, qty) {
-        itemAdded.map(el => {
-            if(item.id === el.id) {
-                item.qty = qty
-                el.qty = qty
-            }
+    function totalToPay() {
+        let totalToPay = 0;
+        itemAdded.forEach(el => {
+            totalToPay = totalToPay + el.qty * el.price
         })
+        console.log(totalToPay)
+        return totalToPay
     }
 
-    function addItem(item, qty) {
+    function updateQtyCart(item, qty) {
+        itemAdded.forEach(el => {
+            if (el.id === item.id) {
+                el.qty = qty
+                item.qty = qty
+            }})
+    }
 
+
+    function addItem(item, qty) {
         let exist = false;
         itemAdded.forEach(el => {
-            if(el.name === item.name) {
+            if (el.name === item.name) {
                 el.qty = el.qty + qty
                 exist = true;
             }
         })
 
-        if(exist === false) {
+        if (exist === false) {
             let itemToAdd = {
                 ...item, qty
             }
@@ -64,9 +70,13 @@ export default function CartContext({children}) {
             title: 'Product deleted!',
             timer: 2500
         })
+
+
+
     }
+
     return (
-        <context.Provider value={{addItem, itemAdded, updateQty, deleteItem}}>
+        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, totalToPay}}>
             {children}
         </context.Provider>
     );

@@ -1,34 +1,79 @@
 @use '../../../scss/abstracts/vars' as c;
+@import '../../../scss/abstracts/mixins';
+
+.cart-empty {
+  height: 80vh;
+  @include flex(flex, center, center, column);
+  text-align: center;
+  div {
+    padding: 1em;
+    border: 4px solid c.$lightBlue;
+    @include flex(flex, center, center, column);
+    border-radius: .5rem;
+    h2 {
+      font-size: 4rem;
+    }
+    h4 {
+      border-bottom: 1px solid c.$lightBlue;
+      width: fit-content;
+    }
+  }
+}
 
 .cart-product-container {
-  display: flex;
-  flex-direction: column;
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+
+  .total-to-pay {
+    grid-column: 5 / 6;
+    grid-row: 1 / 5;
+    min-height: 80vh;
+    margin-right: 1rem;
+    background-color: c.$grayForm;
+    padding-bottom: 10rem;
+    @include flex(flex, center, flex-end, column);
+    div {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      h2 {
+        font-size: 1.5rem;
+      }
+      span {
+        font-size: 1rem;
+      }
+    }
+
+  }
 
   .cart-product {
-    width: 100%;
+    grid-column: 1 / 5;
+    height: fit-content;
+    width: 85%;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+    h2 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
 
     div {
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 2px solid c.$lightBlue;
     }
 
     &__img {
       grid-column: 1 / 2;
       img {
-        width: 15rem;
+        width: 10rem;
       }
     }
 
     &__name {
       grid-column: 2 / 3;
-      h2 {
-        font-size: 1.5rem;
-        text-align: center;
-      }
     }
 
     &__price {
@@ -49,9 +94,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-      div {
-        border: none;
       }
     }
 

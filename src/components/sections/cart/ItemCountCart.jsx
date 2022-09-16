@@ -1,12 +1,15 @@
 import {useEffect, useState} from "react";
 
-export default function ItemCountCart({initial, stock, onAdd, el, update}) {
+export default function ItemCountCart({initial, stock , updateQty, el , onAdd}) {
     const [count, setCount] = useState(initial)
-
-
     useEffect(() => {
         setCount(initial)
     }, []);
+
+    useEffect(() => {
+        onAdd(count)
+        updateQty(el, count)
+    }, [count]);
 
     function addProduct() {
         setCount(count < stock ? count + 1 : count)
@@ -18,9 +21,9 @@ export default function ItemCountCart({initial, stock, onAdd, el, update}) {
 
     return (
         <>
-            <button onClick={() => {subtractProduct(); onAdd(count);}}>-</button>
+            <button onClick={() => {subtractProduct()}}>-</button>
             <div>{count}</div>
-            <button onClick={() => {addProduct(); onAdd(count);}}>+</button>
+            <button onClick={() => {addProduct()}}>+</button>
         </>
 
     );

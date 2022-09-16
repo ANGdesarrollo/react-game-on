@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from "react";
-import {context} from "../cart/CartContext";
+import {context} from "../../context/CartContext";
 import GetItem from "../products/GetItem";
 import arrayProducts from "../../utils/products.json";
 import {useParams} from "react-router-dom";
