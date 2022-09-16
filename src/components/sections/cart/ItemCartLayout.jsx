@@ -5,7 +5,7 @@ import {context} from "../../context/CartContext";
 export default function ItemCartLayout({onAdd, controlStock}) {
     let con = useContext(context)
     useEffect(() => {
-        con.totalToPay()
+        let totalToPay = con.totalToPay()
     }, [onAdd]);
 
     return (
@@ -29,6 +29,8 @@ export default function ItemCartLayout({onAdd, controlStock}) {
                 <div><h2>SUBTOTAL: ${con.totalToPay()} </h2></div>
                 <div><h2><span>TAX 21%: </span>${con.totalToPay() * 0.21}</h2></div>
                 <div><h2>TOTAL: ${con.totalToPay() + con.totalToPay() * 0.21}</h2></div>
+                <div><button onClick={()=> con.emptyCart()}>EMPTY CART</button>
+                    <img src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958513/react-js-game-on/icons/empty_igovy7.png" alt="empty icon"/></div>
             </div>
         </div>
     );

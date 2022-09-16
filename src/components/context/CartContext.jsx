@@ -11,8 +11,11 @@ export default function CartContext({children}) {
         itemAdded.forEach(el => {
             totalToPay = totalToPay + el.qty * el.price
         })
-        console.log(totalToPay)
         return totalToPay
+    }
+
+    function emptyCart() {
+        setItemAdded([])
     }
 
     function updateQtyCart(item, qty) {
@@ -76,7 +79,7 @@ export default function CartContext({children}) {
     }
 
     return (
-        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, totalToPay}}>
+        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, totalToPay, emptyCart}}>
             {children}
         </context.Provider>
     );
