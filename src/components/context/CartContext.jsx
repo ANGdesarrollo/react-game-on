@@ -6,12 +6,18 @@ export const context = createContext()
 export default function CartContext({children}) {
     const [itemAdded, setItemAdded] = useState([])
 
+    function countQty() {
+        let qty = 0;
+        itemAdded.map(el => {qty +=  el.qty})
+        return qty;
+    }
+
     function subTotalToPay() {
-        let totalToPay = 0;
+        let subTotalToPay = 0;
         itemAdded.forEach(el => {
-            totalToPay = totalToPay + el.qty * el.price
+            subTotalToPay = subTotalToPay + el.qty * el.price
         })
-        return totalToPay
+        return subTotalToPay
     }
 
     function emptyCart() {
@@ -25,7 +31,6 @@ export default function CartContext({children}) {
                 item.qty = qty
             }})
     }
-
 
     function addItem(item, qty) {
         let exist = false;
@@ -73,13 +78,10 @@ export default function CartContext({children}) {
             title: 'Product deleted!',
             timer: 2500
         })
-
-
-
     }
 
     return (
-        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, subTotalToPay, emptyCart}}>
+        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, subTotalToPay, emptyCart, countQty}}>
             {children}
         </context.Provider>
     );

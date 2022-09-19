@@ -12,7 +12,6 @@ import {context} from "../../context/CartContext";
 
 export default function NavBarContainer() {
     const contextImported = useContext(context);
-    const array = contextImported.itemAdded;
     const [toggleClassNavBar, setToggleClassNavBar ] = useState(false)
     const [toggleClassSubNavBar, setToggleClassSubNavBar] = useState(false);
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
@@ -39,7 +38,7 @@ export default function NavBarContainer() {
                 <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
                 <div className='data-header'>
                     <User/>
-                    <CartWidget arrayLength={array}/>
+                    <CartWidget arrayQty={contextImported.countQty}/>
                 </div>
                 <SubNav setClass={setClassSubNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
                 <MenuDesplegable setClass={changeClassNavBar}/>
