@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDsuqcPq7OGT_p3tU9lkly9q1ITZEcei0s",
+    authDomain: "game-on-react-bdad0.firebaseapp.com",
+    projectId: "game-on-react-bdad0",
+    storageBucket: "game-on-react-bdad0.appspot.com",
+    messagingSenderId: "712526598877",
+    appId: "1:712526598877:web:67425725567f5f8c068134"
+};
+
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

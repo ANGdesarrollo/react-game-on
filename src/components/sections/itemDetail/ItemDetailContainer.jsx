@@ -1,11 +1,10 @@
 import {useContext, useEffect, useState} from "react";
 import {context} from "../../context/CartContext";
-import GetItem from "../products/GetItem";
-import arrayProducts from "../../utils/products.json";
 import {useParams} from "react-router-dom";
 import ItemDetailLayout from "./ItemDetailLayout";
 import ItemCount from "./ItemCount";
 import CheckOut from "./CheckOut";
+import {collection, getFirestore, getDocs} from "firebase/firestore";
 
 
 export default function ItemDetailContainer() {
@@ -23,9 +22,13 @@ export default function ItemDetailContainer() {
         contextImported.addItem(detail, qty)
     }
 
-
     function getProduct(res) {
-        let filterArray = res.filter(el => el.name.toLowerCase() === category)
+        let clearArray = []
+        res.docs.forEach((item)=> {
+            const cleanObject = {...item.data(), id: item.id};
+            clearArray.push(cleanObject)
+        })
+        let filterArray =  clearArray.filter(el => el.name.toLowerCase() === category)
         filterArray = filterArray[0].category.filter(el => el.id == id)
         filterArray = filterArray[0]
         return filterArray
@@ -33,10 +36,12 @@ export default function ItemDetailContainer() {
 
     useEffect(() => {
         setLoading(true)
-        GetItem(arrayProducts)
-            .then(res => setDetail(() => getProduct(res)))
+        const db = getFirestore()
+        const collectionRef = collection(db, 'products');
+        getDocs(collectionRef)
+            .then(res => setDetail(getProduct(res)))
             .catch(err => setError(err))
-            .finally(() => setLoading(false))
+            .finally(()=> setLoading(false))
     }, [category, id]);
 
     return (

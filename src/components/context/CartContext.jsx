@@ -6,7 +6,7 @@ export const context = createContext()
 export default function CartContext({children}) {
     const [itemAdded, setItemAdded] = useState([])
 
-    function totalToPay() {
+    function subTotalToPay() {
         let totalToPay = 0;
         itemAdded.forEach(el => {
             totalToPay = totalToPay + el.qty * el.price
@@ -79,7 +79,7 @@ export default function CartContext({children}) {
     }
 
     return (
-        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, totalToPay, emptyCart}}>
+        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, subTotalToPay, emptyCart}}>
             {children}
         </context.Provider>
     );
