@@ -1,7 +1,7 @@
-import IconCart from "../../reUsable/IconCart";
 import {Link} from "react-router-dom";
+import React from "react";
 
-export default function ItemListLayout({item}) {
+export default function ItemListLayout({item, addToCartDirectly}) {
     return (
         <div className="container-products-dinamyc">
             {
@@ -17,7 +17,10 @@ export default function ItemListLayout({item}) {
                             <div className='card-container__detail-product'><Link to={`/products/${product.category.toLowerCase()}/${product.id}`}>detail</Link></div>
                             <div className="card-container__price-product">
                                 <h2>${product.price}</h2>
-                                <IconCart/>
+                                <img onClick={(e) => {
+                                    let pointerClass = e.nativeEvent.target.className
+                                    addToCartDirectly(pointerClass)
+                                }} className={product.id} src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
                             </div>
                         </div>
                     )

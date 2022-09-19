@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 
 export default function ItemCountCart({initial, stock , updateQty, el , onAdd}) {
+
+
     const [count, setCount] = useState(initial)
     useEffect(() => {
         setCount(initial)

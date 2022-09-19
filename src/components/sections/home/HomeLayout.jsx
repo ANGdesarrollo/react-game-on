@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import IconCart from "../../reUsable/IconCart";
+import React from "react";
 
 export default function HomeLayout() {
     return (
@@ -35,7 +35,7 @@ export default function HomeLayout() {
                              alt="razer controller"/>
                     </div>
                     <div className="cart-widget-main-c">
-                        <IconCart/>
+                        <img src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
                     </div>
                     <div>
                         <h3>
@@ -50,7 +50,7 @@ export default function HomeLayout() {
                              alt="steelseries pad"/>
                     </div>
                     <div className="cart-widget-main-c">
-                        <IconCart/>
+                        <img src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
                     </div>
                     <div>
                         <h3>
@@ -66,7 +66,7 @@ export default function HomeLayout() {
                              alt="corsair headset"/>
                     </div>
                     <div className="cart-widget-main-c">
-                        <IconCart/>
+                        <img src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
                     </div>
                     <div>
                         <h3>
