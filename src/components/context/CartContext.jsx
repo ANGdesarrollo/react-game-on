@@ -1,7 +1,7 @@
 import {createContext, useState} from "react";
 import Swal from 'sweetalert2'
 
-export const context = createContext()
+export const context = createContext(CartContext)
 
 export default function CartContext({children}) {
     const [itemAdded, setItemAdded] = useState([])
@@ -9,8 +9,9 @@ export default function CartContext({children}) {
 
     function countQty() {
         let initialQty = 0;
-        itemAdded.map(el => {initialQty +=  el.qty})
+        itemAdded.map(el => initialQty +=  el.qty)
         setQty(initialQty)
+        return initialQty
     }
 
     function subTotalToPay() {

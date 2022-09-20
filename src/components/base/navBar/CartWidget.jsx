@@ -12,7 +12,7 @@ export default function CartWidget() {
     return (
         <Link className='container-cart-widget' to='/cart'>
             <img style={divStyle} src="https://i.ibb.co/KWtB8rs/shopping-cart.png" alt="Shopping ItemCartContainer icon"/>
-            {con.itemAdded.length !== 0 && <CountWidget count={con.qty}/>}
+            {con.itemAdded.length !== 0 && <CountWidget count={con.countQty}/>}
         </Link>
     );
 }
