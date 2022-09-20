@@ -21,10 +21,8 @@ export default function ItemListContainer() {
             const cleanObject = {...item.data(), id: item.id};
             clearArray.push(cleanObject)
         })
-
         let arrayToSend = []
         let arraySelectedToAddDirectly = []
-
         clearArray.map(el => {return(el.category.map(finalEl => arraySelectedToAddDirectly.push(finalEl)))})
         setDirectBuy(arraySelectedToAddDirectly)
 
@@ -45,6 +43,9 @@ export default function ItemListContainer() {
                     itemSelected = item
                 }
             })
+        console.log(itemSelected)
+
+
         con.addItem(itemSelected, 1)
         return itemSelected
     }
