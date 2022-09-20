@@ -8,6 +8,8 @@ import ItemListContainer from "./components/sections/products/ItemListContainer"
 import ItemDetailContainer from "./components/sections/itemDetail/ItemDetailContainer";
 import CartContext from "./components/context/CartContext";
 import ItemCartContainer from "./components/sections/cart/ItemCartContainer";
+import ReturnPolicy from "./components/sections/returnPolicy/ReturnPolicy";
+import Contact from "./components/sections/contact/Contact";
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
                         <Route path='/products/:category' element={<ItemListContainer/>}></Route>
                         <Route path='/products/:category/:id' element={<ItemDetailContainer/>}></Route>
                         <Route path='/cart' element={<ItemCartContainer/>}></Route>
+                        <Route path='/return-policy' element={<ReturnPolicy/>}></Route>
+                        <Route path='/contact' element={<Contact/>}></Route>
                     </Routes>
                     <Footer/>
                 </div>

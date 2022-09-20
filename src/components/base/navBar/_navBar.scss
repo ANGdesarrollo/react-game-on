@@ -40,7 +40,11 @@
         padding: 0 2rem 0 2rem;
       }
 
-      li:hover {
+      a {
+        height: 100%;
+      }
+
+      a:hover {
         border-bottom: 2px solid $lightBlue;
         transform: translateY(-1px);
         cursor: pointer;
