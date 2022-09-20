@@ -6,6 +6,7 @@ import ItemFilterLayout from "./ItemFilterLayout";
 import Loading from "./Loading";
 import {collection, getFirestore, getDocs} from "firebase/firestore";
 import {context} from "../../context/CartContext";
+import VideoBackground from "./VideoBackground";
 
 export default function ItemListContainer() {
     const [product, setProduct] = useState([]);
@@ -48,6 +49,7 @@ export default function ItemListContainer() {
         <>
             <CarouselOffers/>
             <div className='products-container'>
+                <VideoBackground/>
                 <ItemFilterLayout/>
                 {loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>}
             </div>
