@@ -21,11 +21,8 @@ export default function ItemListContainer() {
             const cleanObject = {...item.data(), id: item.id};
             clearArray.push(cleanObject)
         })
-        let arrayToSend = []
-        let arraySelectedToAddDirectly = []
-        clearArray.map(el => {return(el.category.map(finalEl => arraySelectedToAddDirectly.push(finalEl)))})
-        setDirectBuy(arraySelectedToAddDirectly)
 
+        let arrayToSend = []
         if(category === 'allProducts') {
             clearArray.map(el => {return(el.category.map(finalEl => arrayToSend.push(finalEl)))})
             return arrayToSend
@@ -34,20 +31,6 @@ export default function ItemListContainer() {
             arrayToSend = arrayToSend[0].category
             return arrayToSend
         }
-    }
-
-    function detectClickedProduct(product) {
-        let itemSelected;
-            directBuy.map(item => {
-                if(item.id === product) {
-                    itemSelected = item
-                }
-            })
-        console.log(itemSelected)
-
-
-        con.addItem(itemSelected, 1)
-        return itemSelected
     }
 
     useEffect(() => {
@@ -66,7 +49,7 @@ export default function ItemListContainer() {
             <CarouselOffers/>
             <div className='products-container'>
                 <ItemFilterLayout/>
-                {loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={detectClickedProduct}/>}
+                {loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>}
             </div>
         </>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useState} from "react";
 import CartWidget from "./CartWidget";
 import Logo from "./Logo";
@@ -16,6 +16,19 @@ export default function NavBarContainer() {
     const [toggleClassSubNavBar, setToggleClassSubNavBar] = useState(false);
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
     let setClassSubNavBar = toggleClassSubNavBar ? 'sub-nav-header-active ' : null;
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            if(window.innerWidth > 992) {
+                document.body.style.overflowY = "inherit";
+            }
+            if(window.innerWidth < 992 && (toggleClassNavBar === true || toggleClassSubNavBar === true)) {
+                console.log('funciono')
+                document.body.style.overflowY = "hidden";
+            }
+        })
+    }, [])
+
     function changeClassNavBar() {
         setToggleClassNavBar(!toggleClassNavBar)
         setToggleClassSubNavBar(false)

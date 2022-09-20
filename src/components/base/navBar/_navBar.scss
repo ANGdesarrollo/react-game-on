@@ -167,8 +167,21 @@
           border-bottom: 2px solid white;
         }
 
+        a {
+          width: 100%;
+        }
+
+        a:hover {
+          border-bottom: inherit;
+        }
+
         .nav-products-header {
+          pointer-events: inherit;
           background-color: inherit;
+        }
+
+        .nav-products-header:hover {
+
         }
       }
     }
