@@ -10,11 +10,35 @@ import VideoBackground from "./VideoBackground";
 
 export default function ItemListContainer() {
     const [product, setProduct] = useState([]);
-    const [directBuy, setDirectBuy] = useState([])
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const {category} = useParams()
     const con = useContext(context)
+
+    function orderProductsLowerPrice(item) {
+       item.sort((a, b) => {
+            if (a.price == b.price) {
+                return 0;
+            } else if (a.price < b.price) {
+                return -1
+            } else {
+                return 1
+            }
+        })
+
+    }
+
+    function orderProductsHigherPrice(item) {
+        item.sort((a, b) => {
+            if (a.price == b.price) {
+                return 0;
+            } else if (a.price < b.price) {
+                return 1
+            } else {
+                return -1
+            }
+        })
+    }
 
     function filterProducts(res) {
         let clearArray = []
@@ -50,7 +74,7 @@ export default function ItemListContainer() {
             <CarouselOffers/>
             <div className='products-container'>
                 <VideoBackground/>
-                <ItemFilterLayout/>
+                <ItemFilterLayout lowerPrice={orderProductsLowerPrice} higherPrice={orderProductsHigherPrice} item={product}/>
                 {loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>}
             </div>
         </>

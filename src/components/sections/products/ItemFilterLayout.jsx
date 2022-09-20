@@ -1,11 +1,11 @@
-export default function ItemFilterLayout() {
+export default function ItemFilterLayout({lowerPrice, higherPrice, item}) {
     return (
         <div className="container-category">
             <div>
                 <h2>ORDER BY</h2>
                 <div>
                     <div>
-                        <input id="LowerPrice" type="checkbox"/>
+                        <input onClick={() => {lowerPrice(item)}} id="LowerPrice" type="checkbox"/>
                         <label htmlFor="LowerPrice">Lower Price</label>
                     </div>
                     <div>
