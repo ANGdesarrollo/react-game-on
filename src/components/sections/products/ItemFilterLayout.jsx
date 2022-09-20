@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 export default function ItemFilterLayout({lowerPrice, higherPrice, item, checkedLower, checkedHigher}) {
     return (
         <div className="container-category">

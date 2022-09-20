@@ -17,7 +17,7 @@ export default function ItemListLayout({item, addToCartDirectly}) {
                             <div className='card-container__detail-product'><Link to={`/products/${product.category.toLowerCase()}/${product.id}`}>detail</Link></div>
                             <div className="card-container__price-product">
                                 <h2>${product.price}</h2>
-                                <img onClick={(e) => {
+                                <img onClick={() => {
                                     addToCartDirectly(product, 1)
                                 }} className={product.id} src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
                             </div>
