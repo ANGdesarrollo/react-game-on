@@ -24,6 +24,6 @@ export default function ItemCartContainer() {
         }
     }
     return (
-       emptyCart ? <EmptyCartLayout/> : <ItemCartLayout onAdd={onAdd} controlStock={controlStock} />
+       emptyCart ? <EmptyCartLayout/> : <ItemCartLayout onAdd={onAdd} controlStock={controlStock}/>
     );
 };

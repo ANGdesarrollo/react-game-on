@@ -1,20 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import CountWidget from "./CountWidget";
+import {context} from "../../context/CartContext";
 
-export default function CartWidget({arrayQty}) {
+export default function CartWidget() {
+    const con = useContext(context);
     const divStyle = {
         cursor: 'pointer'
     }
 
-    useEffect(() => {
-        console.log(arrayQty())
-    }, []);
-
     return (
         <Link className='container-cart-widget' to='/cart'>
             <img style={divStyle} src="https://i.ibb.co/KWtB8rs/shopping-cart.png" alt="Shopping ItemCartContainer icon"/>
-            {arrayQty() !== 0 && <CountWidget count={arrayQty()}/>}
+            {con.qty !== 0 && <CountWidget count={con.qty}/>}
         </Link>
     );
 }

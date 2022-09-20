@@ -16,7 +16,7 @@ export default function ItemCartLayout({onAdd, controlStock}) {
                         </div>
                         <div className='cart-product__name'><h2>{el.name}</h2></div>
                         <div className='cart-product__price'><h2>PRICE: ${el.price}</h2></div>
-                        <div className='cart-product__qty'><ItemCountCart navQty={con.countQty}stock={el.stock} initial={el.qty} updateQty={con.updateQtyCart} onAdd={onAdd} el={el}/></div>
+                        <div className='cart-product__qty'><ItemCountCart qtyNav={con.countQty} navQty={con.countQty}stock={el.stock} initial={el.qty} updateQty={con.updateQtyCart} onAdd={onAdd} el={el}/></div>
                         <div className='cart-product__total'><h2>{`TOTAL: $${(el.price * el.qty)}`}</h2></div>
                         <div className='cart-product__stock'><h2>{`STOCK: ${el.stock}`}</h2></div>
                         <div className='cart-product__delete'><img onClick={()=> {con.deleteItem(el.id);}} src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958505/react-js-game-on/icons/delete_h4swr7.png" alt=""/></div>

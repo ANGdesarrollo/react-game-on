@@ -51,7 +51,7 @@ export default function NavBarContainer() {
                 <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
                 <div className='data-header'>
                     <User/>
-                    <CartWidget arrayQty={contextImported.countQty}/>
+                    <CartWidget/>
                 </div>
                 <SubNav setClass={setClassSubNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
                 <MenuDesplegable setClass={changeClassNavBar}/>

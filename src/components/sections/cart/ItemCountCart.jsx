@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-export default function ItemCountCart({initial, stock , updateQty, el , onAdd}) {
+export default function ItemCountCart({initial, stock , updateQty, el , onAdd, qtyNav}) {
 
 
     const [count, setCount] = useState(initial)
@@ -11,6 +11,7 @@ export default function ItemCountCart({initial, stock , updateQty, el , onAdd}) 
     useEffect(() => {
         onAdd(count)
         updateQty(el, count)
+        qtyNav()
     }, [count]);
 
     function addProduct() {

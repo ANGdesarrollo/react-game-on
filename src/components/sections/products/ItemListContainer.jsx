@@ -9,6 +9,8 @@ import {context} from "../../context/CartContext";
 import VideoBackground from "./VideoBackground";
 
 export default function ItemListContainer() {
+    const [orderProductHigh, setOrderProductHigh] = useState(false)
+    const [orderProductLow, setOrderProductLow] = useState(false)
     const [product, setProduct] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -16,6 +18,7 @@ export default function ItemListContainer() {
     const con = useContext(context)
 
     function orderProductsLowerPrice(item) {
+        setOrderProductHigh(false)
        item.sort((a, b) => {
             if (a.price == b.price) {
                 return 0;
@@ -25,10 +28,12 @@ export default function ItemListContainer() {
                 return 1
             }
         })
-
+        setProduct(item)
+        setOrderProductLow(true)
     }
 
     function orderProductsHigherPrice(item) {
+        setOrderProductLow(false)
         item.sort((a, b) => {
             if (a.price == b.price) {
                 return 0;
@@ -38,6 +43,8 @@ export default function ItemListContainer() {
                 return -1
             }
         })
+        setProduct(item)
+        setOrderProductHigh(true)
     }
 
     function filterProducts(res) {
@@ -68,16 +75,28 @@ export default function ItemListContainer() {
             .finally(()=> setLoading(false))
     }, [category]);
 
+    function render() {
+        return (
+            <>
+                <CarouselOffers/>
+                <div className='products-container'>
+                    <VideoBackground/>
+                    <ItemFilterLayout lowerPrice={orderProductsLowerPrice} higherPrice={orderProductsHigherPrice} item={product} checkedHigher={orderProductHigh} checkedLower={orderProductLow}/>
+                    {loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>}
+                </div>
+            </>
+        )
+    }
 
-    return (
-        <>
-            <CarouselOffers/>
-            <div className='products-container'>
-                <VideoBackground/>
-                <ItemFilterLayout lowerPrice={orderProductsLowerPrice} higherPrice={orderProductsHigherPrice} item={product}/>
-                {loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>}
-            </div>
-        </>
+    if(orderProductHigh || orderProductLow) {
+        return (
+            render()
+        )
 
-    );
+    } else {
+        return (
+            render()
+        )
+    }
+
 };
