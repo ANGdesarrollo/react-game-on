@@ -8,7 +8,6 @@ export default function CartContext({children}) {
     const [userLogged, setUserLogged] = useState(false)
     const [itemAdded, setItemAdded] = useState([])
     const [qty, setQty] = useState(1)
-    console.log(userLogged)
 
     // SETEA EN TRUE AL USUARIO LOGUEADO AL INICIAR LA APP SI ES QUE YA SE REGISTRO Y LOGUEO (LOS DATOS SE GUARDAN EN LA CACHE AUTOMATICAMENTE POR FIREBASE)
     useEffect(() => {
