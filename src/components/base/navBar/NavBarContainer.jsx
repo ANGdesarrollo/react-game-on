@@ -6,12 +6,11 @@ import Nav from "./Nav";
 import User from "./User";
 import SubNav from "./subNav";
 import MenuDesplegable from "./MenuDesplegable";
-import {useContext} from "react";
-import {context} from "../../context/CartContext";
+import LogIn from "../LogIn-Register/LogIn";
 
 
 export default function NavBarContainer() {
-    const contextImported = useContext(context);
+    const [login, setLogin] = useState(false)
     const [toggleClassNavBar, setToggleClassNavBar ] = useState(false)
     const [toggleClassSubNavBar, setToggleClassSubNavBar] = useState(false);
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
@@ -44,13 +43,15 @@ export default function NavBarContainer() {
         setToggleClassNavBar(!toggleClassNavBar)
     }
 
+
     return (
         <>
             <header className='general-container-header'>
+                {login && <LogIn/>}
                 <Logo/>
                 <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
                 <div className='data-header'>
-                    <User/>
+                    <User logIn={setLogin}/>
                     <CartWidget/>
                 </div>
                 <SubNav setClass={setClassSubNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>

@@ -2,8 +2,53 @@ import LocationIcon from "../../reUsable/LocationIcon";
 import InstagramIcon from "../../reUsable/InstagramIcon";
 import FacebookIcon from "../../reUsable/FacebookIcon";
 import WhatsAppIcon from "../../reUsable/WhatsAppIcon";
+import {useState} from "react";
+import emailjs from '@emailjs/browser'
+import Swal from "sweetalert2";
 
 export default function Contact() {
+
+    const [name, setName] = useState('')
+    const [mail, setMail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [message, setMessage] = useState('')
+
+
+    function sendEmail(e) {
+        e.preventDefault()
+        if (name === '' || mail === '' || phone === '' || message === '') {
+            Swal.fire({
+                icon: "error",
+                position: "top-right",
+                title: "You must complete all fields!",
+                timer: 1000,
+                background: "hsl(193, 80%, 58%)",
+                width: "17rem",
+                customClass: "swal-height",
+                toast: true,
+                showConfirmButton: false,
+                iconColor: '#fff',
+                color: '#fff',
+
+            });
+        } else {
+            let tempParams = {
+                from_name: name,
+                from_mail: mail,
+                phone_number: phone,
+                message: message,
+            }
+
+            emailjs.send('service_2wdmhbd', 'template_wq8wnrm', tempParams, 'x3bA9gysX1X8daoxp')
+                .then(function (res) {
+                    console.log("success", res.status);
+                })
+                .then(setTimeout(function () {
+                    window.location.replace('/success')
+                }, 3000));
+        }
+    }
+
     return (
         <div className="main">
             <div className="form">
@@ -40,27 +85,33 @@ export default function Contact() {
                         <div className="container-form-group">
                             <div className="app-form-group">
                                 <label htmlFor="name">Name</label>
-                                <input id="name" className="app-form-control" placeholder="Ej: Alexis Graff" name="name"
+                                <input onChange={(e) => setName(e.target.value)} id="name" className="app-form-control"
+                                       placeholder="Ej: Alexis Graff" name="name"
                                        required/>
                             </div>
                             <div className="app-form-group">
                                 <label htmlFor="email">Email</label>
-                                <input id="email" className="app-form-control" placeholder="Ej: gameon@gmail.com"
+                                <input onChange={(e) => setMail(e.target.value)} id="email" className="app-form-control"
+                                       placeholder="Ej: gameon@gmail.com"
                                        name="email" required></input>
                             </div>
                             <div className="app-form-group">
                                 <label htmlFor="contact">Phone Number</label>
-                                <input id="contact" className="app-form-control" placeholder="Ej: +54 (291) 5343707"
+                                <input onChange={(e) => setPhone(e.target.value)} id="contact"
+                                       className="app-form-control" placeholder="Ej: +54 (291) 5343707"
                                        name="contact"></input>
                             </div>
                             <div className="app-form-group message">
                                 <label htmlFor="message">Message</label>
-                                <input id="message" className="app-form-control" placeholder="Write Here"
+                                <input onChange={(e) => setMessage(e.target.value)} id="message"
+                                       className="app-form-control" placeholder="Write Here"
                                        name="message"></input>
                             </div>
                             <div className="buttons">
                                 <button type="submit" className="app-form-button">CANCEL</button>
-                                <button id="js-send" type="submit" className="app-form-button">SEND</button>
+                                <button onClick={sendEmail} id="js-send" type="submit"
+                                        className="app-form-button">SEND
+                                </button>
                             </div>
 
                         </div>

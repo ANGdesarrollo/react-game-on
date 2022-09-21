@@ -1,0 +1,168 @@
+@use '../../../scss/abstracts/vars' as c;
+@import '../../../scss/abstracts/mixins';
+
+.login-container-general {
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  background-color: c.$graySuperTrans;
+  width: 100vw;
+  z-index: 5;
+
+  .container-log-in {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 380px;
+    height: 460px;
+    background-color: c.$grayForm;
+
+    .form-container-user {
+      width: 100%;
+      height: 91%;
+
+      .title-user {
+        font-weight: bold;
+        font-size: 2rem;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+
+        span {
+          height: fit-content;
+          padding-left: 10px;
+        }
+
+        #span-left-title-user {
+          width: fit-content;
+          position: relative;
+        }
+
+        #span-left-title-user::before {
+          position: absolute;
+          content: "";
+          padding: 5px;
+          background-color: c.$lightBlue;
+          bottom: 0;
+          width: 80%;
+        }
+      }
+
+      .user-container-data {
+        @include flex(flex, center, flex-start, column);
+
+
+
+        .complete-data {
+          padding: 3%;
+          width: 100%;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            color: c.$grayForm;
+          }
+
+          input {
+            color: white;
+            width: 70%;
+            font-size: .7rem;
+            background: none;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid c.$grayTrans;
+            text-align: center;
+          }
+
+          ::placeholder {
+            color: white;
+            border: none;
+            font-size: 1rem;
+          }
+
+          input:focus {
+            border-bottom-color: c.$white;
+          }
+        }
+      }
+
+      .register-user {
+        padding-top: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+
+        button {
+          border-radius: .2rem;
+          margin: .5rem;
+          background-color: c.$lightBlue;
+          width: 30%;
+          height: 40px;
+          border: none;
+          color: white;
+        }
+
+        button:hover {
+          background-color: steelblue;
+          transform: translateY(2px);
+        }
+      }
+    }
+  }
+
+  .upper-container {
+    position: relative;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: c.$grayForm-1;
+    width: 100%;
+    height: 9%;
+
+    img {
+      position: absolute;
+      right: 0;
+      width: 35px;
+      height: 35px;
+    }
+
+    #js-span-a {
+      margin-right: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      content: "";
+      background-color: c.$lightBlue;
+
+    }
+
+    #js-span-b {
+      margin-right: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      content: "";
+      background-color: c.$lightBlue-degrade;
+
+    }
+
+    #js-span-c {
+      margin-right: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      content: "";
+      background-color: c.$lightBlue-degrade-1;
+
+    }
+  }
+}

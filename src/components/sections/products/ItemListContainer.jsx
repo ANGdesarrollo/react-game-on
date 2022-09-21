@@ -12,7 +12,7 @@ export default function ItemListContainer() {
     const [orderProductHigh, setOrderProductHigh] = useState(false)
     const [orderProductLow, setOrderProductLow] = useState(false)
     const [product, setProduct] = useState([]);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const {category} = useParams()
     const con = useContext(context)
@@ -20,7 +20,7 @@ export default function ItemListContainer() {
     function orderProductsLowerPrice(item) {
         setOrderProductHigh(false)
        item.sort((a, b) => {
-            if (a.price == b.price) {
+            if (a.price === b.price) {
                 return 0;
             } else if (a.price < b.price) {
                 return -1
@@ -35,7 +35,7 @@ export default function ItemListContainer() {
     function orderProductsHigherPrice(item) {
         setOrderProductLow(false)
         item.sort((a, b) => {
-            if (a.price == b.price) {
+            if (a.price === b.price) {
                 return 0;
             } else if (a.price < b.price) {
                 return 1
@@ -71,7 +71,7 @@ export default function ItemListContainer() {
         const collectionRef = collection(db, 'products');
         getDocs(collectionRef)
             .then(res => setProduct(filterProducts(res)))
-            .catch(err => setError(err))
+            .catch(err => {setError(err); console.log(error)})
             .finally(()=> setLoading(false))
     }, [category]);
 

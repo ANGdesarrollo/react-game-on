@@ -5,7 +5,7 @@ export default function Nav({setClass, toggleClassSubNavBar}) {
         <nav className={setClass}>
             <ul>
                 <Link to='/'><li>HOME</li></Link>
-                <a href="#"><li onClick={toggleClassSubNavBar} className='nav-products-header'>PRODUCTS</li></a>
+                <a><li onClick={toggleClassSubNavBar} className='nav-products-header'>PRODUCTS</li></a>
                 <Link to='/return-policy'><li>RETURN POLICY</li></Link>
                 <Link to='/contact'><li>CONTACT</li></Link>
             </ul>

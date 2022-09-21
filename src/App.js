@@ -10,7 +10,7 @@ import CartContext from "./components/context/CartContext";
 import ItemCartContainer from "./components/sections/cart/ItemCartContainer";
 import ReturnPolicy from "./components/sections/returnPolicy/ReturnPolicy";
 import Contact from "./components/sections/contact/Contact";
-
+import Success from "./components/sections/contact/Success";
 
 function App() {
     console.log('SOY LA APP Y ME RENDERICE')
@@ -26,6 +26,7 @@ function App() {
                         <Route path='/cart' element={<ItemCartContainer/>}></Route>
                         <Route path='/return-policy' element={<ReturnPolicy/>}></Route>
                         <Route path='/contact' element={<Contact/>}></Route>
+                        <Route path='/success' element={<Success/>}></Route>
                     </Routes>
                     <Footer/>
                 </div>

@@ -29,7 +29,7 @@ export default function ItemDetailContainer() {
             clearArray.push(cleanObject)
         })
         let filterArray =  clearArray.filter(el => el.name.toLowerCase() === category)
-        filterArray = filterArray[0].category.filter(el => el.id == id)
+        filterArray = filterArray[0].category.filter(el => el.id === id)
         filterArray = filterArray[0]
         return filterArray
     }
@@ -40,7 +40,7 @@ export default function ItemDetailContainer() {
         const collectionRef = collection(db, 'products');
         getDocs(collectionRef)
             .then(res => setDetail(getProduct(res)))
-            .catch(err => setError(err))
+            .catch(err => {setError(err); console.log(error)})
             .finally(()=> setLoading(false))
     }, [category, id]);
 
