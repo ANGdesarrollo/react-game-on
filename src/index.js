@@ -3,25 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { initializeApp } from "firebase/app";
+import 'firebase/compat/auth';
+import firebase from "firebase/compat/app";
 
-const firebaseConfig = {
+export const fireApp = firebase.initializeApp({
     apiKey: "AIzaSyDsuqcPq7OGT_p3tU9lkly9q1ITZEcei0s",
     authDomain: "game-on-react-bdad0.firebaseapp.com",
     projectId: "game-on-react-bdad0",
     storageBucket: "game-on-react-bdad0.appspot.com",
     messagingSenderId: "712526598877",
     appId: "1:712526598877:web:67425725567f5f8c068134"
-};
-
-initializeApp(firebaseConfig);
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>
 );
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

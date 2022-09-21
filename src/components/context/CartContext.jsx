@@ -1,12 +1,25 @@
-import {createContext, useState} from "react";
-import Swal from 'sweetalert2'
+import {createContext, useEffect, useState} from "react";
+import {fireApp} from "../../index"
+import {sweetAlert} from "../reUsable/SweetAlert";
 
 export const context = createContext(CartContext)
 
 export default function CartContext({children}) {
+    const [userLogged, setUserLogged] = useState(false)
     const [itemAdded, setItemAdded] = useState([])
     const [qty, setQty] = useState(1)
+    console.log(userLogged)
 
+    // SETEA EN TRUE AL USUARIO LOGUEADO AL INICIAR LA APP SI ES QUE YA SE REGISTRO Y LOGUEO (LOS DATOS SE GUARDAN EN LA CACHE AUTOMATICAMENTE POR FIREBASE)
+    useEffect(() => {
+       fireApp.auth().onAuthStateChanged((firebaseUser) => {
+           if(firebaseUser !== null) {
+               setUserLogged(true)
+           }
+       })
+    }, []);
+
+    // MAPEA Y CUENTA LA CANTIDAD DE PRODUCTOS QUE HAY COMPRADOS
     function countQty() {
         let initialQty = 0;
         itemAdded.map(el => initialQty +=  el.qty)
@@ -14,6 +27,7 @@ export default function CartContext({children}) {
         return initialQty
     }
 
+    // RECORRE Y PERMITE SABER EL SUBTOTAL A PAGAR SIN IMPUESTOS
     function subTotalToPay() {
         let subTotalToPay = 0;
         itemAdded.forEach(el => {
@@ -22,10 +36,12 @@ export default function CartContext({children}) {
         return subTotalToPay
     }
 
+    // VACIAR CARRITO
     function emptyCart() {
         setItemAdded([])
     }
 
+    // ACTUALIZA EL QTY EN EL ARRAY DEL CARRITO PRINCIPAL
     function updateQtyCart(item, qty) {
         itemAdded.forEach(el => {
             if (el.id === item.id) {
@@ -34,6 +50,7 @@ export default function CartContext({children}) {
             }})
     }
 
+    //AGREGA ITEMS AL CARRITO
     function addItem(item, qty) {
         let exist = false;
         itemAdded.forEach(el => {
@@ -43,52 +60,25 @@ export default function CartContext({children}) {
                 countQty()
             }
         })
-
-
-
-
-
+        //FILTRO PARA NO REPETIR PRODUCTOS EN EL ARRAY Y SUMAR LA CANTIDAD
         if (exist === false) {
             let itemToAdd = {
                 ...item, qty
             }
             setItemAdded([...itemAdded, itemToAdd])
         }
-        Swal.fire({
-            background: "hsl(193, 80%, 58%)",
-            width: "17rem",
-            customClass: "swal-height",
-            toast: true,
-            showConfirmButton: false,
-            iconColor: '#fff',
-            color: '#fff',
-            position: 'top-right',
-            icon: 'success',
-            title: 'Product added!',
-            timer: 2500
-        })
-    }
+        sweetAlert('Product added!', 'success')
 
+    }
+    // FUNCION PARA BORRAR ITEMS INDIVIDUALES EN EL CARRITO
     function deleteItem(id) {
         let newArray = itemAdded.filter(el => el.id !== id)
         setItemAdded(newArray)
-        Swal.fire({
-            background: "hsl(193, 80%, 58%)",
-            width: "17rem",
-            customClass: "swal-height",
-            toast: true,
-            showConfirmButton: false,
-            iconColor: '#fff',
-            color: '#fff',
-            position: 'top-right',
-            icon: 'success',
-            title: 'Product deleted!',
-            timer: 2500
-        })
+
     }
 
     return (
-        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, subTotalToPay, emptyCart, qty, countQty}}>
+        <context.Provider value={{addItem, itemAdded, updateQtyCart, deleteItem, subTotalToPay, emptyCart, qty, countQty, setUserLogged, userLogged}}>
             {children}
         </context.Provider>
     );

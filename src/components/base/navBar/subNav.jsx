@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-
 export default function SubNav({setClass, toggleClassSubNavBar}) {
     return (
         <ul className={`sub-nav-header ${setClass}`}>

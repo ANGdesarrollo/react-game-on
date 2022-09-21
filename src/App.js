@@ -11,9 +11,9 @@ import ItemCartContainer from "./components/sections/cart/ItemCartContainer";
 import ReturnPolicy from "./components/sections/returnPolicy/ReturnPolicy";
 import Contact from "./components/sections/contact/Contact";
 import Success from "./components/sections/contact/Success";
+import Buy from "./components/sections/finalBuy/buy";
 
 function App() {
-    console.log('SOY LA APP Y ME RENDERICE')
     return (
         <CartContext>
             <BrowserRouter>
@@ -24,6 +24,7 @@ function App() {
                         <Route path='/products/:category' element={<ItemListContainer/>}></Route>
                         <Route path='/products/:category/:id' element={<ItemDetailContainer/>}></Route>
                         <Route path='/cart' element={<ItemCartContainer/>}></Route>
+                        <Route path='/order' element={<Buy/>}></Route>
                         <Route path='/return-policy' element={<ReturnPolicy/>}></Route>
                         <Route path='/contact' element={<Contact/>}></Route>
                         <Route path='/success' element={<Success/>}></Route>

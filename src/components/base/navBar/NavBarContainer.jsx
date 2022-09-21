@@ -16,18 +16,6 @@ export default function NavBarContainer() {
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
     let setClassSubNavBar = toggleClassSubNavBar ? 'sub-nav-header-active ' : null;
 
-    useEffect(() => {
-        window.addEventListener('resize', () => {
-            if(window.innerWidth > 992) {
-                document.body.style.overflowY = "inherit";
-            }
-            if(window.innerWidth < 992 && (toggleClassNavBar === true || toggleClassSubNavBar === true)) {
-                console.log('funciono')
-                document.body.style.overflowY = "hidden";
-            }
-        })
-    }, [])
-
     function changeClassNavBar() {
         setToggleClassNavBar(!toggleClassNavBar)
         setToggleClassSubNavBar(false)
@@ -43,11 +31,23 @@ export default function NavBarContainer() {
         setToggleClassNavBar(!toggleClassNavBar)
     }
 
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            if(window.innerWidth > 992) {
+                document.body.style.overflowY = "inherit";
+            }
+            if(window.innerWidth < 992 && (toggleClassNavBar === true || toggleClassSubNavBar === true)) {
+                console.log('funciono')
+                document.body.style.overflowY = "hidden";
+            }
+        })
+    }, [])
+
 
     return (
         <>
             <header className='general-container-header'>
-                {login && <LogIn/>}
+                {login && <LogIn close={setLogin}/>}
                 <Logo/>
                 <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
                 <div className='data-header'>

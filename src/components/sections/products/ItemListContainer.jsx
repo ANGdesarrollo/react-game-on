@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import {collection, getFirestore, getDocs} from "firebase/firestore";
 import {context} from "../../context/CartContext";
 import VideoBackground from "./VideoBackground";
+import {sweetAlert} from "../../reUsable/SweetAlert";
 
 export default function ItemListContainer() {
     const [orderProductHigh, setOrderProductHigh] = useState(false)
@@ -75,6 +76,14 @@ export default function ItemListContainer() {
             .finally(()=> setLoading(false))
     }, [category]);
 
+    function logged() {
+        if(con.userLogged) {
+            return loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>
+        } else {
+            sweetAlert('You must log in to see products')
+        }
+    }
+
     function render() {
         return (
             <>
@@ -82,7 +91,7 @@ export default function ItemListContainer() {
                 <div className='products-container'>
                     <VideoBackground/>
                     <ItemFilterLayout lowerPrice={orderProductsLowerPrice} higherPrice={orderProductsHigherPrice} item={product} checkedHigher={orderProductHigh} checkedLower={orderProductLow}/>
-                    {loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>}
+                    {logged()}
                 </div>
             </>
         )
