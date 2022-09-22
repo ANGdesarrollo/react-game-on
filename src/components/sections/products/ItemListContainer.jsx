@@ -9,6 +9,7 @@ import {context} from "../../context/CartContext";
 import VideoBackground from "./VideoBackground";
 import {sweetAlert} from "../../reUsable/SweetAlert";
 import LogIn from "../../base/LogIn-Register/LogIn";
+import NotLoggedIn from "./NotLoggedIn";
 
 export default function ItemListContainer() {
     const [orderProductHigh, setOrderProductHigh] = useState(false)
@@ -81,7 +82,8 @@ export default function ItemListContainer() {
         if(con.userLogged) {
             return loading ? <Loading/> : <ItemListLayout item={product} addToCartDirectly={con.addItem}/>
         } else {
-            sweetAlert('You must log in to see products')
+            return <NotLoggedIn/>
+
         }
     }
 

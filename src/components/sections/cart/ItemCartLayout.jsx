@@ -34,14 +34,16 @@ export default function ItemCartLayout({onAdd, controlStock}) {
                 <div><h2>SUBTOTAL: ${con.subTotalToPay()} </h2></div>
                 <div><h2><span>TAX 21%: </span>${(con.subTotalToPay() * 0.21).toFixed(2)}</h2></div>
                 <div><h2>TOTAL: ${(con.subTotalToPay() + con.subTotalToPay() * 0.21).toFixed(2)}</h2></div>
-                <div>
-                    <button onClick={() => con.emptyCart()}>EMPTY CART</button>
+                <div className='buttons-itemCart'>
+                    <button className='css-button-shadow-border-sliding--rose'><Link to='/order'>SEND ORDER</Link></button>
+                </div>
+                <div className='buttons-itemCart'>
+                    <button className='css-button-shadow-border-sliding--rose' onClick={() => con.emptyCart()}>EMPTY CART</button>
                     <img
                         src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958513/react-js-game-on/icons/empty_igovy7.png"
-                        alt="empty icon"/></div>
-                <div>
-                    <button><Link to='/order'>SEND ORDER</Link></button>
+                        alt="empty icon"/>
                 </div>
+
             </div>
 
         </div>

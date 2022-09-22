@@ -28,7 +28,7 @@ export default function Buy() {
             <input value={name} onChange={(e) => setName(e.target.value)} placeholder='nombre' type="text"/>
             <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='phone' type="text"/>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="text"/>
-            <button onClick={finishBuy}>SEND ORDER</button>
+            <button  onClick={finishBuy}>SEND ORDER</button>
         </div>
     );
 };
