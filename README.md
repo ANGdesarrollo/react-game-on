@@ -4,7 +4,7 @@ Este proyecto es sobre un e-commerce de articulos de computadora orientados al g
 
 ### ACCESO AL PROYECTO:
 
-Link a la web : https://react-final-coder-hw063a91q-purran481.vercel.app/
+Link a la web :  https://react-final-coder.vercel.app
 
 <p><img align="right" src="https://github.com/ANGdesarrollo/react-game-on/blob/master/2022-09-23-03-45-56.gif?raw=true" width="500" height="320" alt=""></p>
 
