@@ -11,6 +11,7 @@ export default function LogIn({close}) {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [error, setError] = useState(false)
 
+    //LOGICA DE REGISTRO CON FIREBASE
     const register = async (e) => {
         e.preventDefault()
         if (password === '' || user === '' || repeatPassword === '') {
@@ -36,7 +37,7 @@ export default function LogIn({close}) {
             return sweetAlert('Invalid Email', 'error')
         }
     }
-
+    //LOGICA DE LOGUEO CON FIREBASE
     const loginUser = (user, password) => {
         fireApp
             .auth()
@@ -58,6 +59,7 @@ export default function LogIn({close}) {
     //PLACEHOLDER CONDITIONAL
     let placeHolderUser = login ? 'email' : 'enter your e-mail'
 
+    // LOGICA PARA AGREGAR UN INPUT DE REPEAT PASSWORD SI VAS A LA SECCION DE REGISTRO.
     function repeatPw() {
         if (!login) {
             return (

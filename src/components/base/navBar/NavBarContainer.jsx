@@ -17,6 +17,7 @@ export default function NavBarContainer() {
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
     let setClassSubNavBar = toggleClassSubNavBar ? 'sub-nav-header-active ' : null;
 
+    // LOGICA DE CAMBIO DE CLASES PARA NAVBAR HAMBURGUESA (IDPAD - CELULARES)
     function changeClassNavBar() {
         setToggleClassNavBar(!toggleClassNavBar)
         setToggleClassSubNavBar(false)
@@ -27,12 +28,14 @@ export default function NavBarContainer() {
             document.body.style.overflowY = "hidden";
         }
     }
-
+// LOGICA DE CAMBIO DE CLASES PARA NAVBAR HAMBURGUESA (IDPAD - CELULARES)
     function changeClassSubNavBar() {
         setToggleClassSubNavBar(!toggleClassSubNavBar)
         setToggleClassNavBar(!toggleClassNavBar)
     }
-
+    // CUANDO TENGO EL NAVBAR HAMBURGUESA DESPLEGADO ANULO EL SCROLL DEL BODY, PERO SI EN UNA PC AGRANDAS
+    // A +992 PX SE PASA A MODO DESKTOP Y ME QUEDA ANULADO EL SCROLL, DE ESTA MANERA
+    // LOGRO SOLUCIONARLO
     useEffect(() => {
         window.addEventListener('resize', () => {
             if (window.innerWidth > 992) {

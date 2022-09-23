@@ -111,7 +111,6 @@ export default function ItemListContainer() {
                                           checkedLower={orderProductLow}/>
                         {logged()}
                     </div>
-
             </>
         )
     }

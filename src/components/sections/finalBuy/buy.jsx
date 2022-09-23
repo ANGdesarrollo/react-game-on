@@ -3,7 +3,7 @@ import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {context} from "../../context/CartContext";
 import {CSSTransition} from "react-transition-group";
 import {sweetAlert} from "../../reUsable/SweetAlert";
-import IdOrder from "../cart/idOrder";
+import IdOrder from "./idOrder";
 
 export default function Buy() {
     const con = useContext(context)
@@ -12,6 +12,7 @@ export default function Buy() {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
 
+    // LOGICA PARA ENVIAR A FIREBASE LA ORDEN DE COMPRA
     function finishBuy() {
         console.log(name, phone, email)
 

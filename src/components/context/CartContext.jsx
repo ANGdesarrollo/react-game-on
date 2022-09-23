@@ -5,8 +5,11 @@ import {sweetAlert} from "../reUsable/SweetAlert";
 export const context = createContext(CartContext)
 
 export default function CartContext({children}) {
+    //ESTE STATE DETECTA SI ESTAS LOGUEADO O NO PARA DEJARTE O NO VER LOS PRODUCTOS.
     const [userLogged, setUserLogged] = useState(false)
+    //ARRAY DE PRODUCTOS AGREGADOS AL CART
     const [itemAdded, setItemAdded] = useState([])
+    //CANTIDAD DE PRODUCTOS EN EL CART.
     const [qty, setQty] = useState(1)
 
     // SETEA EN TRUE AL USUARIO LOGUEADO AL INICIAR LA APP SI ES QUE YA SE REGISTRO Y LOGUEO (LOS DATOS SE GUARDAN EN LA CACHE AUTOMATICAMENTE POR FIREBASE)

@@ -14,7 +14,7 @@ export default function Contact() {
     const [phone, setPhone] = useState('')
     const [message, setMessage] = useState('')
 
-
+    // LOGICA PARA ENVIAR UN MAIL CON UNA API A MI PROPIO EMAIL.
     function sendEmail(e) {
         e.preventDefault()
         if (name === '' || mail === '' || phone === '' || message === '') {
