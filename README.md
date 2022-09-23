@@ -30,5 +30,6 @@ Link a la web : https://react-final-coder-hw063a91q-purran481.vercel.app/
 3. Una seccion para enviar la orden de compra.
 4. Cada producto es llamado desde Firestore.
 
+- Un ordenador de productos de mayor a menor y de menor a mayor
 - Un formulario de contacto conectado a una API de mail.
 - Un inicio de sesion mediante LOGIN conectado a FIREBASE.

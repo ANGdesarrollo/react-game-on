@@ -17,6 +17,12 @@ export default function NavBarContainer() {
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
     let setClassSubNavBar = toggleClassSubNavBar ? 'sub-nav-header-active ' : null;
 
+    function handleHideNavBar() {
+        setToggleClassNavBar(false)
+        setToggleClassSubNavBar(false)
+    }
+
+
     // LOGICA DE CAMBIO DE CLASES PARA NAVBAR HAMBURGUESA (IDPAD - CELULARES)
     function changeClassNavBar() {
         setToggleClassNavBar(!toggleClassNavBar)
@@ -36,16 +42,17 @@ export default function NavBarContainer() {
     // CUANDO TENGO EL NAVBAR HAMBURGUESA DESPLEGADO ANULO EL SCROLL DEL BODY, PERO SI EN UNA PC AGRANDAS
     // A +992 PX SE PASA A MODO DESKTOP Y ME QUEDA ANULADO EL SCROLL, DE ESTA MANERA
     // LOGRO SOLUCIONARLO
+
     useEffect(() => {
         window.addEventListener('resize', () => {
             if (window.innerWidth > 992) {
                 document.body.style.overflowY = "inherit";
             }
-            if (window.innerWidth < 992 && (toggleClassNavBar === true || toggleClassSubNavBar === true)) {
+            if (window.innerWidth < 992 && (toggleClassNavBar|| toggleClassSubNavBar)) {
                 document.body.style.overflowY = "hidden";
             }
         })
-    }, [])
+    }, [window.innerWidth])
 
 
     return (
@@ -60,13 +67,12 @@ export default function NavBarContainer() {
                         <LogIn close={setLogin}/>
                     </CSSTransition>}
                     <Logo/>
-                    <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
+                    <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar} hiddeNavBar={handleHideNavBar}/>
                     <div className='data-header'>
                         <User logIn={setLogin}/>
                         <CartWidget/>
                     </div>
-                    <SubNav setClass={setClassSubNavBar} toggleClassSubNavBar={changeClassSubNavBar}
-                            openLogin={setLogin}/>
+                    <SubNav setClass={setClassSubNavBar} toggleClassSubNavBar={changeClassSubNavBar} openLogin={setLogin} hiddeNavBar={handleHideNavBar}/>
                     <MenuDesplegable setClass={changeClassNavBar}/>
                 </header>
             </CSSTransition>
