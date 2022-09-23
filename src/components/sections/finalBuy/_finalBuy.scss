@@ -1,0 +1,177 @@
+@use '../../../scss/abstracts/vars' as c;
+@import "../../../scss/abstracts/mixins";
+
+.main-final {
+  height: 85vh;
+  background-image: url(https://res.cloudinary.com/dwz16rstr/image/upload/v1663635945/react-js-game-on/contact/background_ftoh16.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0 3rem 0;
+
+  .final-buy-congrats {
+    @include flex(flex, center, center, column);
+    text-align: center;
+    height: 50%;
+    width: 50%;
+    font-size: 3rem;
+    background-color: c.$grayTrans;
+    span:first-child {
+      width: fit-content;
+      border-bottom: 2px solid c.$lightBlue;
+      font-size: 4rem;
+      font-weight: bold;
+      color: c.$lightBlue
+    }
+    span {
+      display: block;
+      width: 100%;
+    }
+  }
+  .form-final{
+    padding: 2.5%;
+    grid-template-columns: repeat(7, 1fr);
+    display: grid;
+    width: 30%;
+    height: fit-content;
+    background-color: c.$grayTrans;
+
+    &__form-part {
+      background-color: c.$grayForm;
+      grid-column: 1 / 8;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: 2rem auto;
+      display: grid;
+
+      .points-form {
+        display: flex;
+        align-items: center;
+        background-color: c.$grayForm-1;
+        padding-left: 1.5rem;
+        grid-column: 1 / 8;
+
+        #span-point-a {
+          margin-right: 7px;
+          border-radius: 50%;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          content: "";
+          background-color: c.$lightBlue;
+        }
+        #span-point-b {
+          margin-right: 7px;
+          border-radius: 50%;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          content: "";
+          background-color: c.$lightBlue-degrade;
+        }
+        #span-point-c {
+          margin-right: 7px;
+          border-radius: 50%;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          content: "";
+          background-color: c.$lightBlue-degrade-1;
+        }
+      }
+
+      .title-form {
+        padding: 10%;
+        font-weight: bold;
+        font-size: 2rem;
+        grid-column: 1 / 4;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        span {
+          display: block;
+        }
+
+        #subline-form {
+          width: fit-content;
+          position: relative;
+        }
+
+        #subline-form::before {
+          position: absolute;
+          content: "";
+          padding: 5px;
+          background-color: c.$lightBlue;
+          bottom: -0.5rem;
+          width: 40%;
+        }
+      }
+
+      .inputs-form {
+        @include flex(flex, center, center, column);
+        grid-column: 4 / 8;
+        display: flex;
+
+        .container-form-group {
+          @include flex(flex, center, center, column);
+
+          height:100%;
+          width: 80%;
+
+          .app-form-group {
+            margin-bottom: 4%;
+            margin-top: 4%;
+            font-size: 0.8rem;
+            width: 100%;
+            @include flex(flex, flex-start, center, column);
+            input {
+              width: 80%;
+              padding: 10px 0;
+              background: none;
+              border: none;
+              border-bottom: 1px solid c.$grayTrans;
+              color: c.$white;
+              font-size: 14px;
+              text-transform: uppercase;
+              outline: none;
+            }
+
+            input:focus {
+              border-bottom-color: c.$white;
+            }
+
+            ::placeholder {
+              border: none;
+              color: c.$grayTrans;
+            }
+          }
+
+          .buttons {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            .app-form-button {
+              margin: 10px;
+              background: none;
+              border: none;
+              color: c.$lightBlue;
+              font-size: 14px;
+              cursor: pointer;
+              outline: none;
+            }
+
+            .app-form-button:hover {
+              color: c.$black-hsl;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

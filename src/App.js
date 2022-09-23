@@ -12,6 +12,7 @@ import ReturnPolicy from "./components/sections/returnPolicy/ReturnPolicy";
 import Contact from "./components/sections/contact/Contact";
 import Success from "./components/sections/contact/Success";
 import Buy from "./components/sections/finalBuy/buy";
+import React from "react";
 
 function App() {
     return (

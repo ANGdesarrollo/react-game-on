@@ -5,6 +5,7 @@ import ItemDetailLayout from "./ItemDetailLayout";
 import ItemCount from "./ItemCount";
 import CheckOut from "./CheckOut";
 import {collection, getFirestore, getDocs} from "firebase/firestore";
+import {CSSTransition} from "react-transition-group";
 
 
 export default function ItemDetailContainer() {
@@ -24,11 +25,11 @@ export default function ItemDetailContainer() {
 
     function getProduct(res) {
         let clearArray = []
-        res.docs.forEach((item)=> {
+        res.docs.forEach((item) => {
             const cleanObject = {...item.data(), id: item.id};
             clearArray.push(cleanObject)
         })
-        let filterArray =  clearArray.filter(el => el.name.toLowerCase() === category)
+        let filterArray = clearArray.filter(el => el.name.toLowerCase() === category)
         filterArray = filterArray[0].category.filter(el => el.id === id)
         filterArray = filterArray[0]
         return filterArray
@@ -40,19 +41,24 @@ export default function ItemDetailContainer() {
         const collectionRef = collection(db, 'products');
         getDocs(collectionRef)
             .then(res => setDetail(getProduct(res)))
-            .catch(err => {setError(err); console.log(error)})
-            .finally(()=> setLoading(false))
+            .catch(err => {
+                setError(err);
+                console.log(error)
+            })
+            .finally(() => setLoading(false))
     }, [category, id]);
 
     return (
         <>
-            <div className='container-detail'>
-                {loading ? <p>Loading</p> : <ItemDetailLayout array={detail}/>}
-                {
-                    count === 0 ?  <ItemCount stock={detail.stock} initial={1} onAdd={onAdd}/> : <CheckOut/>
-                }
 
-            </div>
+                <div className='container-detail'>
+                    {loading ? <p>Loading</p> : <CSSTransition in={true} appear={true} timeout={300} classNames="fade"><ItemDetailLayout array={detail}/></CSSTransition>}
+                    {
+                        count === 0 ? <ItemCount stock={detail.stock} initial={1} onAdd={onAdd}/> : <CheckOut/>
+                    }
+
+                </div>
+
         </>
     );
 };

@@ -1,0 +1,26 @@
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+
+.fade-appear-done {
+  opacity: 1;
+}
+
+.fade-exit-done {
+  opacity: 0;
+}
+

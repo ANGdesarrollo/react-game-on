@@ -1,5 +1,3 @@
-import React, {useState, useEffect} from 'react';
-
 export default function NotLoggedIn() {
     return (
         <div className='container-products-dinamyc'>

@@ -5,7 +5,9 @@
 //*
 .carousel-offers {
   grid-column: 1 / 6;
+
 }
+
 .products-container {
   position: relative;
   display: grid;
@@ -40,6 +42,7 @@
 
     }
   }
+
   //  *
   //  ** VIDEO CONTAINER
   //  *
@@ -51,12 +54,14 @@
     height: 100%;
     overflow: hidden;
   }
-//  *
-//  ** ITEM LIST
-//  *
+
+  //  *
+  //  ** ITEM LIST
+  //  *
   .container-products-dinamyc::-webkit-scrollbar {
     -webkit-appearance: none;
   }
+
   .container-products-dinamyc {
     height: 80vh;
     overflow-y: scroll;
@@ -66,9 +71,11 @@
     justify-content: space-around;
     flex-wrap: wrap;
 
+
     .card-container:hover {
       transform: translateY(-.2rem);
       background-color: c.$grayForm;
+
     }
 
     .card-container {
@@ -80,6 +87,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
 
       &__image-product {
         display: flex;
@@ -150,3 +158,4 @@
     }
   }
 }
+

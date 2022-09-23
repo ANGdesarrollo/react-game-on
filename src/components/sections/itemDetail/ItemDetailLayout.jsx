@@ -1,5 +1,3 @@
-
-
 export default function ItemDetailLayout({array}) {
     return (
         array.details !== undefined &&
@@ -9,20 +7,22 @@ export default function ItemDetailLayout({array}) {
             </div>
             <div className='detail-info'>
                 <div className='detail-title'><h1>TECH SPECS</h1></div>
-                <ul>
-                    {array.details.map((el, i) => {
-                        return (
-                            <li className='detail-name' key={i}>{el.name}</li>
-                        )
-                    })}
-                </ul>
-                <ul>
-                    {array.details.map((el, i) => {
-                        return (
-                            <li key={i}>{el.description.toUpperCase()}</li>
-                        )
-                    })}
-                </ul>
+                <div className='detail-info-ul-container'>
+                    <ul>
+                        {array.details.map((el, i) => {
+                            return (
+                                <li className='detail-name' key={i}>{el.name}</li>
+                            )
+                        })}
+                    </ul>
+                    <ul>
+                        {array.details.map((el, i) => {
+                            return (
+                                <li key={i}>{el.description.toUpperCase()}</li>
+                            )
+                        })}
+                    </ul>
+                </div>
             </div>
             <div className='detail-price'>
                 <h2>PRICE: US <span>${array.price}</span></h2>

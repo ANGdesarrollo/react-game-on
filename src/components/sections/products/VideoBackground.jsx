@@ -1,5 +1,3 @@
-import React, {useState, useEffect} from 'react';
-
 export default function VideoBackground() {
     return (
         <div className='video-container'>

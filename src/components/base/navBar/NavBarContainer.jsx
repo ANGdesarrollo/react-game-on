@@ -7,11 +7,12 @@ import User from "./User";
 import SubNav from "./subNav";
 import MenuDesplegable from "./MenuDesplegable";
 import LogIn from "../LogIn-Register/LogIn";
+import {CSSTransition} from "react-transition-group";
 
 
 export default function NavBarContainer() {
     const [login, setLogin] = useState(false)
-    const [toggleClassNavBar, setToggleClassNavBar ] = useState(false)
+    const [toggleClassNavBar, setToggleClassNavBar] = useState(false)
     const [toggleClassSubNavBar, setToggleClassSubNavBar] = useState(false);
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
     let setClassSubNavBar = toggleClassSubNavBar ? 'sub-nav-header-active ' : null;
@@ -20,12 +21,13 @@ export default function NavBarContainer() {
         setToggleClassNavBar(!toggleClassNavBar)
         setToggleClassSubNavBar(false)
         toggleClassSubNavBar && setToggleClassNavBar(false)
-        if(toggleClassSubNavBar || toggleClassNavBar) {
+        if (toggleClassSubNavBar || toggleClassNavBar) {
             document.body.style.overflowY = "inherit";
         } else {
             document.body.style.overflowY = "hidden";
         }
     }
+
     function changeClassSubNavBar() {
         setToggleClassSubNavBar(!toggleClassSubNavBar)
         setToggleClassNavBar(!toggleClassNavBar)
@@ -33,11 +35,10 @@ export default function NavBarContainer() {
 
     useEffect(() => {
         window.addEventListener('resize', () => {
-            if(window.innerWidth > 992) {
+            if (window.innerWidth > 992) {
                 document.body.style.overflowY = "inherit";
             }
-            if(window.innerWidth < 992 && (toggleClassNavBar === true || toggleClassSubNavBar === true)) {
-                console.log('funciono')
+            if (window.innerWidth < 992 && (toggleClassNavBar === true || toggleClassSubNavBar === true)) {
                 document.body.style.overflowY = "hidden";
             }
         })
@@ -46,18 +47,26 @@ export default function NavBarContainer() {
 
     return (
         <>
-            <header className='general-container-header'>
-                {login && <LogIn close={setLogin}/>}
-                <Logo/>
-                <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
-                <div className='data-header'>
-                    <User logIn={setLogin}/>
-                    <CartWidget/>
-                </div>
-                <SubNav setClass={setClassSubNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
-                <MenuDesplegable setClass={changeClassNavBar}/>
-
-            </header>
+            <CSSTransition in={true} appear={true} timeout={300} classNames="fade">
+                <header className='general-container-header'>
+                    {login && <CSSTransition
+                        in={login}
+                        onExit={() => setLogin(false)}
+                        appear={login} timeout={300}
+                        classNames="fade">
+                        <LogIn close={setLogin}/>
+                    </CSSTransition>}
+                    <Logo/>
+                    <Nav setClass={setClassNavBar} toggleClassSubNavBar={changeClassSubNavBar}/>
+                    <div className='data-header'>
+                        <User logIn={setLogin}/>
+                        <CartWidget/>
+                    </div>
+                    <SubNav setClass={setClassSubNavBar} toggleClassSubNavBar={changeClassSubNavBar}
+                            openLogin={setLogin}/>
+                    <MenuDesplegable setClass={changeClassNavBar}/>
+                </header>
+            </CSSTransition>
         </>
     );
 }
