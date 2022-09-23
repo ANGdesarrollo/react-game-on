@@ -105,7 +105,7 @@ export default function ItemListContainer() {
             <>
                 <CSSTransition in={true} appear={true} timeout={300} classNames="fade"><CarouselOffers/></CSSTransition>
                     <div className='products-container'>
-                        <VideoBackground/>
+                        {(category === 'allProducts' && window.innerWidth < 992) ? null : <VideoBackground/>}
                         <ItemFilterLayout lowerPrice={orderProductsLowerPrice} higherPrice={orderProductsHigherPrice}
                                           item={product} checkedHigher={orderProductHigh}
                                           checkedLower={orderProductLow}/>

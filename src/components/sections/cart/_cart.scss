@@ -194,5 +194,165 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 1400px) {
+  .cart-product-container {
+    .total-to-pay {
+      margin-right: .5rem;
+
+      .buttons-itemCart {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        .css-button-shadow-border-sliding--rose {
+          min-width: 80px;
+          height: 40px;
+          font-size: .8rem;
+        }
+      }
+      span {
+        font-size: 1.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      &__subtotal {
+        margin-top: 3rem;
+        div {
+          .subtotal {
+            h2 {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+    .cart-product {
+      grid-column: 1 / 5;
+      height: fit-content;
+      h2 {
+        font-size: 1rem;
+      }
+      div {
+        padding: .2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cart-product-container {
+    margin-top: 1rem;
+    align-content: baseline;
+
+    .total-to-pay {
+      grid-column: 1 / 6;
+      margin: 0;
+      @include flex(flex, center, center, row);
+
+      &__subtotal {
+        height: 100%;
+        margin: 0 0 0 1rem;
+        border: none;
+        @include flex(flex, center, center, column);
+        div {
+          padding: 1rem;
+          .subtotal {
+            h2 {
+              font-size: 1.7rem;
+            }
+            .h2-subtotal-final {
+              font-style: italic;
+            }
+          }
+        }
+      }
+
+      &__total-to-pay {
+        height: 100%;
+        @include flex(flex, center, center, row);
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      .buttons-itemCart {
+        width: 50%;
+      }
+    }
+
+    .cart-product {
+      grid-column: 1 / 6;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cart-product-container {
+    .total-to-pay {
+      flex-wrap: wrap;
+      &__subtotal {
+        margin: 0;
+        width: 100%;
+        height: fit-content;
+        div {
+          padding: .5rem;
+          .subtotal {
+            .task-final {
+              h2 {
+                font-size: .9rem;
+              }
+            }
+            h2 {
+              font-size: 1.3rem;
+            }
+            span {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      &__total-to-pay {
+        justify-content: space-around;
+        height: fit-content;
+      }
+
+      .buttons-itemCart {
+        button {
+          margin-left: .5rem;
+        }
+      }
+    }
+    .cart-product {
+      grid-column: 1 / 6;
+
+      h2 {
+        font-size: .7rem;
+      }
+
+      img {
+        width: 5rem;
+      }
+
+      &__qty {
+        button {
+          margin: 0 .3rem 0 .3rem;
+          width: 1.2rem;
+          height: 1.2rem;
+        }
+      }
+      &__delete {
+        grid-column: 7 / 8;
+        img {
+          width: 1.5rem;
+        }
+      }
+    }
+  }
+
 
 }

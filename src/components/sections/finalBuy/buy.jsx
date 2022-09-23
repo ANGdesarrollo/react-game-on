@@ -4,6 +4,7 @@ import {context} from "../../context/CartContext";
 import {CSSTransition} from "react-transition-group";
 import {sweetAlert} from "../../reUsable/SweetAlert";
 import IdOrder from "./idOrder";
+import {Link} from "react-router-dom";
 
 export default function Buy() {
     const con = useContext(context)
@@ -11,9 +12,11 @@ export default function Buy() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
+    const [disableButton, setDisableButton] = useState(false)
 
     // LOGICA PARA ENVIAR A FIREBASE LA ORDEN DE COMPRA
     function finishBuy() {
+        setDisableButton(true)
         console.log(name, phone, email)
 
         if(!name) {return sweetAlert('Complete the name field!', 'error');}
@@ -74,8 +77,8 @@ export default function Buy() {
                                                name="contact"></input>
                                     </div>
                                     <div className="buttons">
-                                        <button type="submit" className="app-form-button">CANCEL</button>
-                                        <button onClick={(e) => {e.preventDefault(); finishBuy()}} id="js-send" type="submit"
+                                        <button type="submit" className="app-form-button"><Link to='/products/allProducts'>CANCEL</Link></button>
+                                        <button disabled={disableButton} onClick={(e) => {e.preventDefault(); finishBuy()}} id="js-send" type="submit"
                                                 className="app-form-button">SEND
                                         </button>
                                     </div>

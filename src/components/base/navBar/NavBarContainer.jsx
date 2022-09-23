@@ -17,11 +17,12 @@ export default function NavBarContainer() {
     let setClassNavBar = toggleClassNavBar ? 'nav-dropdown-active' : null;
     let setClassSubNavBar = toggleClassSubNavBar ? 'sub-nav-header-active ' : null;
 
+    // LOGICA DE CAMBIO DE CLASES PARA NAVBAR HAMBURGUESA (IDPAD - CELULARES)
     function handleHideNavBar() {
         setToggleClassNavBar(false)
         setToggleClassSubNavBar(false)
+        document.body.style.overflowY = "inherit";
     }
-
 
     // LOGICA DE CAMBIO DE CLASES PARA NAVBAR HAMBURGUESA (IDPAD - CELULARES)
     function changeClassNavBar() {
