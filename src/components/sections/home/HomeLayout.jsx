@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from "react";
+import {Link} from "react-router-dom";
 
 export default function HomeLayout() {
     return (
@@ -31,47 +31,62 @@ export default function HomeLayout() {
             <div className='home-c'>
                 <div className="main-c-card">
                     <div>
-                        <img className="img-card-main-c" src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958770/react-js-game-on/home-images/home-razer-image_llay6r.webp"
-                             alt="razer controller"/>
+                        <img className="img-card-main-c"
+                             src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958399/react-js-game-on/products/Mouse_2_z3ex6a.webp"
+                             alt="Viper Ultimate"/>
                     </div>
                     <div className="cart-widget-main-c">
-                        <img src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
+                        <Link to='/products/mouse'>
+                            <img
+                                src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png"
+                                alt="Shopping icon"/>
+                        </Link>
                     </div>
                     <div>
                         <h3>
-                            <span>Captain America</span>
-                            <span>Controller</span>
+                            <span>Viper Ultimate</span>
+                            <span>Black</span>
                         </h3>
                     </div>
                 </div>
                 <div className="main-c-card">
                     <div>
-                        <img className="img-card-main-c" src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958770/react-js-game-on/home-images/home-steelseries-image_phhn98.webp"
-                             alt="steelseries pad"/>
+                        <img className="img-card-main-c"
+                             src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958399/react-js-game-on/products/Notebook_3_fm5ymo.webp"
+                             alt="Notebook Razer"/>
                     </div>
                     <div className="cart-widget-main-c">
-                        <img src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
+                        <Link to='/products/notebook'>
+                            <img
+                                src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png"
+                                alt="Shopping icon"/>
+                        </Link>
                     </div>
                     <div>
                         <h3>
-                            <span>Qck Large PUBG</span>
-                            <span>SoulSeller Edition</span>
+                            <span>Book</span>
+                            <span>UHD Touch 60Hz</span>
                         </h3>
 
                     </div>
                 </div>
                 <div className="main-c-card">
                     <div>
-                        <img className="img-card-main-c" src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958770/react-js-game-on/home-images/home-corsair-image_d1b6u1.webp"
-                             alt="corsair headset"/>
+                        <img className="img-card-main-c"
+                             src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958404/react-js-game-on/products/Keyboard_0_u8dqc9.webp"
+                             alt="Huntsman V2"/>
                     </div>
                     <div className="cart-widget-main-c">
-                        <img src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png" alt="Shopping icon"/>
+                        <Link to='/products/keyboard'>
+                            <img
+                                src="https://res.cloudinary.com/dwz16rstr/image/upload/v1662958795/react-js-game-on/icons/shopping-cart_ounlnp.png"
+                                alt="Shopping icon"/>
+                        </Link>
                     </div>
                     <div>
                         <h3>
-                            <span>Corsair HS60 PRO</span>
-                            <span>SURROUND</span>
+                            <span>Huntsman V2</span>
+                            <span>Analog</span>
                         </h3>
                     </div>
                 </div>

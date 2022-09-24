@@ -166,3 +166,12 @@
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  .login-container-general {
+    .container-log-in {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
