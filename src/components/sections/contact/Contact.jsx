@@ -44,16 +44,16 @@ export default function Contact() {
                     <div className="form__icons">
                         <ul>
                             <li>
-                                <a href="https://api.whatsapp.com/send?phone=542915343707"><WhatsAppIcon/></a>
+                                <a href="https://api.whatsapp.com/send?phone=542915343707" target='_blank'><WhatsAppIcon/></a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com"><FacebookIcon/></a>
+                                <a href="https://www.facebook.com" target='_blank'><FacebookIcon/></a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com"><InstagramIcon/></a>
+                                <a href="https://www.instagram.com" target='_blank'><InstagramIcon/></a>
                             </li>
                             <li>
-                                <a href="https://goo.gl/maps/LArbc5hoxP28NNdk9"><LocationIcon/></a>
+                                <a href="https://goo.gl/maps/LArbc5hoxP28NNdk9" target='_blank'><LocationIcon/></a>
                             </li>
                         </ul>
                     </div>

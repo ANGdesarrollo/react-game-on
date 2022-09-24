@@ -23,13 +23,13 @@ export default function Footer() {
                 <div className="footer-c">
                     <ul>
                         <li>
-                            <a href="https://goo.gl/maps/LArbc5hoxP28NNdk9"><LocationIcon/></a>
+                            <a href="https://goo.gl/maps/LArbc5hoxP28NNdk9" target='_blank'><LocationIcon/></a>
                         </li>
                         <li>
-                            <a href="https://api.whatsapp.com/send?phone=542915343707"><WhatsAppIcon/></a>
+                            <a href="https://api.whatsapp.com/send?phone=542915343707" target='_blank'><WhatsAppIcon/></a>
                         </li>
                         <li>
-                            <a href="contact.html"><EmailIcon/></a>
+                            <a href="contact.html" target='_blank'><EmailIcon/></a>
                         </li>
                     </ul>
                 </div>
@@ -38,10 +38,10 @@ export default function Footer() {
             <div className="footer-d">
                 <ul className="footer-d-a">
                     <li>
-                        <a className="img-footer-fb" href="https://www.facebook.com/"><FacebookIcon/></a>
+                        <a className="img-footer-fb" href="https://www.facebook.com/" target='_blank'><FacebookIcon/></a>
                     </li>
                     <li>
-                        <a className="img-footer-ig" href="https://www.instagram.com/"><InstagramIcon/></a>
+                        <a className="img-footer-ig" href="https://www.instagram.com/" target='_blank'><InstagramIcon/></a>
                     </li>
                 </ul>
 
