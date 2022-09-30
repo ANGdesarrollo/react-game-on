@@ -8,14 +8,14 @@ export default function CarouselOffers() {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://res.cloudinary.com/dwz16rstr/image/upload/v1663029899/react-js-game-on/offers/offers_hdaewp.webp"
+                        src="https://res.cloudinary.com/dwz16rstr/image/upload/v1664544094/react-js-game-on/offers/1_jxdukb.png"
                         alt="First slide"
                     />
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://res.cloudinary.com/dwz16rstr/image/upload/v1663029899/react-js-game-on/offers/offers_a_witsfl.webp"
+                        src="https://res.cloudinary.com/dwz16rstr/image/upload/v1664544094/react-js-game-on/offers/2_lsubaj.png"
                         alt="Second slide"
                     />
                 </Carousel.Item>
