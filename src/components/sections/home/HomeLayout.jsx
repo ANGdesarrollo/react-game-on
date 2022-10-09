@@ -93,7 +93,7 @@ export default function HomeLayout() {
             </div>
             <div className="home-d">
                 <div>
-                    <h2>GLORIUOS MODEL</h2>
+                    <h2>GLORIOUS MODEL</h2>
                     <h4>THE ULTIMATE GAMING MOUSE</h4>
                 </div>
 
