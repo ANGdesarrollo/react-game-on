@@ -1,5 +1,5 @@
 import './scss/app.scss';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBarContainer from "./components/base/navBar/NavBarContainer";
 import HomeContainer from "./components/sections/home/HomeContainer";
@@ -29,6 +29,7 @@ function App() {
                         <Route path='/return-policy' element={<ReturnPolicy/>}></Route>
                         <Route path='/contact' element={<Contact/>}></Route>
                         <Route path='/success' element={<Success/>}></Route>
+                        <Route path="*" element={<HomeContainer/>} />
                     </Routes>
                     <Footer/>
                 </div>
